@@ -1,0 +1,26 @@
+spring:
+  application:
+    name: so66341268
+  main:
+    banner-mode: off
+
+  cloud:
+    stream:
+      rabbit:
+        default:
+          consumer:
+            auto-bind-dlq: true
+            republish-to-dlq: true
+          producer:
+            auto-bind-dlq: true
+            republish-to-dlq: true
+      bindings:
+        bootstrap-out-0:
+          producer:
+            requiredGroups: so66341268
+
+      function:
+        definition: bootstrap
+      default:
+        producer:
+          requiredGroups: so66341268
